@@ -1,36 +1,172 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔐 Next.js 16 Authentication Template
 
-## Getting Started
+A production-ready authentication template built with **Next.js 16**, **Better Auth**, **Prisma**, and **Neon DB**. This project provides a clean and scalable foundation for implementing authentication in modern web applications.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+* ✅ Email & Password Authentication
+* ✅ GitHub OAuth Login
+* ✅ Better Auth integration (secure + modern auth handling)
+* ✅ Prisma ORM for database management
+* ✅ Neon DB (serverless Postgres)
+* ✅ Clean and modular folder structure
+* ✅ Ready for extension (Google auth, roles, sessions, etc.)
+
+---
+
+## 🧱 Tech Stack
+
+| Technology  | Purpose                        |
+| ----------- | ------------------------------ |
+| Next.js 16  | Full-stack React framework     |
+| Better Auth | Authentication system          |
+| Prisma      | ORM for database access        |
+| Neon DB     | Serverless PostgreSQL database |
+| TypeScript  | Type safety                    |
+
+---
+
+## 📦 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/AliAbdullah0/Template-Better-Auth-Email-Password
+cd your-repo-name
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Setup environment variables
+
+Create a `.env` file in the root directory and add:
+
+```env
+DATABASE_URL=
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+BETTER_AUTH_SECRET=
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+---
+
+## 🗄️ Database Setup (Prisma + Neon)
+
+### 1. Generate Prisma client
+
+```bash
+npx prisma generate
+```
+
+### 2. Run migrations
+
+```bash
+npx prisma migrate dev
+```
+
+### 3. Open Prisma Studio (optional)
+
+```bash
+npx prisma studio
+```
+
+---
+
+## 🧪 Running the Project
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App will be available at:
+👉 [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔑 Authentication Flow
 
-## Learn More
+### Email & Password
 
-To learn more about Next.js, take a look at the following resources:
+1. User signs up with email + password
+2. Credentials stored securely via Prisma
+3. Login validates credentials
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### GitHub OAuth
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. User clicks "Login with GitHub"
+2. Redirect to GitHub OAuth
+3. Callback handled by Better Auth
+4. User session created
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+├── app/
+|   ├── start/        # Show current logged in users info
+│   ├── api/          # Auth routes
+│   ├── (auth)/       # Login / Signup pages
+├── lib/
+|   ├── auth-client.ts
+|   ├── utils.ts
+│   ├── auth.ts       # Better Auth config
+│   └── prisma.ts     # Prisma client
+├── prisma/
+│   └── schema.prisma
+├── components/
+```
+
+---
+
+## 🔒 Security Notes
+
+* Passwords are hashed before storage
+* Environment variables are required for secrets
+* OAuth handled securely via Better Auth
+
+---
+
+## 🧩 Extending This Template
+
+I will soon extend this project with:
+
+* 🔹 Google / Discord OAuth
+* 🔹 Role-based access control (RBAC)
+* 🔹 Email verification
+* 🔹 Password reset flow
+* 🔹 Multi-factor authentication (MFA)
+
+---
+
+## 📌 Roadmap
+
+* [ ] Add Google Auth
+* [ ] Add email verification
+* [ ] Add password reset
+* [ ] Add user roles
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to fork the repo and submit a PR.
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+## ⭐ Support
+
+If you found this helpful, give it a ⭐ on GitHub!
