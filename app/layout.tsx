@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 const notoSans = Noto_Sans({variable:'--font-sans'});
 
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem >
         {children}
+        <Toaster position="bottom-right"/>
         </ThemeProvider>
       </body>
     </html>
